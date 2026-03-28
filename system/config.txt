@@ -1,0 +1,3 @@
+# System config
+max_users=100
+log_level=INFO

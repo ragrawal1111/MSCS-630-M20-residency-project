@@ -1,0 +1,3 @@
+INFO: Shell started
+ERROR: Disk full
+INFO: User logged in

@@ -153,61 +153,61 @@ Track progress for all four deliverables. Mark items with `[x]` as you complete 
 ## Deliverable 4: Integration and Security
 
 ### Piping
-- [ ] Input lines with `|` detected and split into segments
-- [ ] Each segment spawned as a subprocess with `stdout=PIPE`
-- [ ] Each process's `stdin` connected to previous process's `stdout`
-- [ ] File descriptors closed after use (no fd leaks)
-- [ ] Arbitrary chain length supported (`cmd1 | cmd2 | cmd3 | ...`)
-- [ ] Piping works with built-in commands where applicable
+- [x] Input lines with `|` detected and split into segments
+- [x] Each segment spawned as a subprocess with `stdout=PIPE`
+- [x] Each process's `stdin` connected to previous process's `stdout`
+- [x] File descriptors closed after use (no fd leaks)
+- [x] Arbitrary chain length supported (`cmd1 | cmd2 | cmd3 | ...`)
+- [x] Piping works with built-in commands where applicable
 
 ### User Authentication
-- [ ] Login prompt shown on shell startup
-- [ ] Passwords stored as SHA-256(salt + password), never plaintext
-- [ ] Timing-safe comparison used (`hmac.compare_digest`)
-- [ ] Maximum 3 login attempts before session rejected
-- [ ] `whoami` prints current username and role
-- [ ] `passwd` allows user to change own password
+- [x] Login prompt shown on shell startup
+- [x] Passwords stored as SHA-256(salt + password), never plaintext
+- [x] Timing-safe comparison used (`hmac.compare_digest`)
+- [x] Maximum 3 login attempts before session rejected
+- [x] `whoami` prints current username and role
+- [x] `passwd` allows user to change own password
 
 ### Role-Based Access Control
-- [ ] Two roles defined: `admin` and `user`
-- [ ] Admin has full access to all commands and files
-- [ ] Standard user restricted to read-only on system files
-- [ ] Standard user has read/write/execute in their home directory only
-- [ ] `useradd <user>` is admin-only
-- [ ] `chmod <file> <perm>` is admin-only
+- [x] Two roles defined: `admin` and `user`
+- [x] Admin has full access to all commands and files
+- [x] Standard user restricted to read-only on system files
+- [x] Standard user has read/write/execute in their home directory only
+- [x] `useradd <user>` is admin-only
+- [x] `chmod <file> <perm>` is admin-only
 
 ### File Permissions
-- [ ] Permission table loaded from `data/permissions.json`
-- [ ] Every file-accessing command checks permissions before executing
-- [ ] `Permission denied` message shown on access violation
-- [ ] Permissions persist across shell sessions (saved to JSON)
+- [x] Permission table loaded from `data/permissions.json`
+- [x] Every file-accessing command checks permissions before executing
+- [x] `Permission denied` message shown on access violation
+- [x] Permissions persist across shell sessions (saved to JSON)
 
 ### Full Integration
-- [ ] All modules imported and wired together in `main.py`
-- [ ] Security check applied before every command execution
-- [ ] Scheduler, memory manager, and sync tools accessible from the main REPL
-- [ ] Piping works alongside existing job control and security checks
-- [ ] No regressions from previous deliverables
+- [x] All modules imported and wired together in `main.py`
+- [x] Security check applied before every command execution
+- [x] Scheduler, memory manager, and sync tools accessible from the main REPL
+- [x] Piping works alongside existing job control and security checks
+- [x] No regressions from previous deliverables
 
 ### Report
-- [ ] Complete integrated source code submitted
-- [ ] Screenshots: piping with 2+ commands chained
-- [ ] Screenshots: login with admin and standard user accounts
-- [ ] Screenshots: file permission enforcement in action
-- [ ] Report section: integration overview covering all deliverable components
-- [ ] Report section: piping implementation explained
-- [ ] Report section: authentication and permission system described
-- [ ] Report section: challenges and improvements discussed
+- [x] Complete integrated source code submitted
+- [x] Screenshots: piping with 2+ commands chained
+- [x] Screenshots: login with admin and standard user accounts
+- [x] Screenshots: file permission enforcement in action
+- [x] Report section: integration overview covering all deliverable components
+- [x] Report section: piping implementation explained
+- [x] Report section: authentication and permission system described
+- [x] Report section: challenges and improvements discussed
 
 ---
 
 ## General Quality Checklist
 
-- [ ] All commands handle missing or incorrect arguments gracefully
-- [ ] Error messages follow format: `shell: <command>: <reason>`
-- [ ] No hardcoded passwords or sensitive data in source files
-- [ ] Code is modular — each OS concept in its own module
-- [ ] All modules have been manually tested end-to-end
-- [ ] Unit tests written for core logic (scheduler, memory, security)
-- [ ] `README.md` is complete and accurate
-- [ ] All four deliverable report sections are written
+- [x] All commands handle missing or incorrect arguments gracefully
+- [x] Error messages follow format: `shell: <command>: <reason>`
+- [x] No hardcoded passwords or sensitive data in source files
+- [x] Code is modular — each OS concept in its own module
+- [x] All modules have been manually tested end-to-end
+- [x] Unit tests written for core logic (scheduler, memory, security)
+- [x] `README.md` is complete and accurate
+- [x] All four deliverable report sections are written

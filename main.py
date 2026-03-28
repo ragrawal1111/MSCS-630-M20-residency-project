@@ -18,6 +18,8 @@ from shell.scheduler import (
 import shell.memory_manager as mem_mod
 from shell.memory_manager import MemoryManager, set_memory_manager, get_memory_manager
 import shell.synchronization as sync_mod
+import shell.security as security
+from shell.pipe_handler import run_pipeline
 
 # Job-control commands handled by process_manager
 _JOB_CONTROL = {
@@ -236,14 +238,15 @@ def repl() -> None:
     print("MyShell 1.0  —  Type 'exit' to quit, Ctrl-D to quit")
 
     while True:
-        # Build a prompt that shows the current directory
+        # Build a prompt that shows the current user and directory
         try:
             cwd = os.getcwd()
         except FileNotFoundError:
             cwd = "?"
 
+        user = security.get_current_user() or "?"
         try:
-            line = input(f"myshell:{cwd}$ ")
+            line = input(f"{user}@myshell:{cwd}$ ")
         except EOFError:
             # Ctrl-D
             print()
@@ -261,13 +264,41 @@ def repl() -> None:
         if tokens is None:
             continue
 
-        # Pipe support is implemented in Deliverable 4
+        # Pipe — Deliverable 4
         if is_pipe:
-            print("shell: pipes are not yet supported (see Deliverable 4)")
+            run_pipeline(tokens, background)
             continue
 
         cmd = tokens[0]
         args = tokens[1:]
+
+        # Security / user-management commands (Deliverable 4)
+        if cmd == "whoami":
+            security.cmd_whoami(args)
+            continue
+        if cmd == "passwd":
+            security.cmd_passwd(args)
+            continue
+        if cmd == "useradd":
+            security.cmd_useradd(args)
+            continue
+        if cmd == "chmod":
+            security.cmd_chmod(args)
+            continue
+
+        # File-permission checks for built-ins that touch the filesystem
+        _READ_CMDS  = {"cat", "ls"}
+        _WRITE_CMDS = {"rm", "touch", "mkdir", "rmdir"}
+        if cmd in _READ_CMDS:
+            target = args[0] if args else "."
+            if not security.check_permission(target, "r"):
+                print(f"shell: {cmd}: {target}: Permission denied")
+                continue
+        if cmd in _WRITE_CMDS:
+            target = args[0] if args else "."
+            if not security.check_permission(target, "w"):
+                print(f"shell: {cmd}: {target}: Permission denied")
+                continue
 
         # Scheduler commands
         if cmd == "schedule":
@@ -342,6 +373,7 @@ def repl() -> None:
 
 def main() -> None:
     try:
+        security.login()
         repl()
     except SystemExit as exc:
         code = exc.code if exc.code is not None else 0

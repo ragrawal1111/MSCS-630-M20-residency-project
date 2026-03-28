@@ -1,0 +1,14 @@
+{
+  "system/config.txt": {
+    "admin": "rwx",
+    "user": "---"
+  },
+  "system/log.txt": {
+    "admin": "rwx",
+    "user": "r--"
+  },
+  "myfile.txt": {
+    "admin": "rwx",
+    "user": "rwx"
+  }
+}

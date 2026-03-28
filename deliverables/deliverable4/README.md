@@ -1,12 +1,12 @@
 # Deliverable 4 — Integration and Security Implementation
 
-## Status: Not Started
+## Status: Complete
 
 ## What to Submit
-- [ ] Complete integrated source code (all modules wired in `main.py`)
-- [ ] Updated `data/users.json` and `data/permissions.json`
-- [ ] Report (see `report.md`)
-- [ ] Screenshots (place in `screenshots/` folder)
+- [x] Complete integrated source code (all modules wired in `main.py`)
+- [x] Updated `data/users.json` and `data/permissions.json`
+- [x] Report (see `report.md`)
+- [x] Screenshots (place in `screenshots/` folder)
 
 ## Key Files
 | File | Purpose |
