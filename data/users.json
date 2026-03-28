@@ -13,5 +13,10 @@
     "hash": "f8e2c6f1c696794acd89549d075293ae62902e62751b56d4d2cea85b3ec853c3",
     "salt": "5c192e5faf30c6c76543f2219aac28b8",
     "role": "user"
+  },
+  "bob": {
+    "hash": "8715edcec356d374c9267c3a43bbe1ce1117d12c797cad48f6eeb80098687b36",
+    "salt": "23ac3efd64cd82eff3d9595bb2bca232",
+    "role": "user"
   }
 }
