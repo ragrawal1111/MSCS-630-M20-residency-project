@@ -96,57 +96,57 @@ Track progress for all four deliverables. Mark items with `[x]` as you complete 
 ## Deliverable 3: Memory Management and Process Synchronization
 
 ### Paging System
-- [ ] `mem-init <frames> [fifo|lru]` initializes memory manager
-- [ ] `mem-alloc <proc_id> <pages>` assigns pages to a process
-- [ ] `mem-access <proc_id> <page>` simulates page access (HIT or FAULT)
-- [ ] Page fault count tracked and displayed
-- [ ] `mem-status` shows all frames with current contents
-- [ ] `mem-free <proc_id>` deallocates all pages for a process
+- [x] `mem-init <frames> [fifo|lru]` initializes memory manager
+- [x] `mem-alloc <proc_id> <pages>` assigns pages to a process
+- [x] `mem-access <proc_id> <page>` simulates page access (HIT or FAULT)
+- [x] Page fault count tracked and displayed
+- [x] `mem-status` shows all frames with current contents
+- [x] `mem-free <proc_id>` deallocates all pages for a process
 
 ### FIFO Page Replacement
-- [ ] Pages evicted in the order they were loaded (queue-based)
-- [ ] Victim frame identified and replaced on overflow
-- [ ] FIFO queue updated after each replacement
+- [x] Pages evicted in the order they were loaded (queue-based)
+- [x] Victim frame identified and replaced on overflow
+- [x] FIFO queue updated after each replacement
 
 ### LRU Page Replacement
-- [ ] Pages evicted based on least-recent access time
-- [ ] LRU order updated on every access (hit or fault)
-- [ ] Correct victim selected on overflow
+- [x] Pages evicted based on least-recent access time
+- [x] LRU order updated on every access (hit or fault)
+- [x] Correct victim selected on overflow
 
 ### Process Synchronization — Primitives
-- [ ] `mutex-create <name>` creates a named mutex (`threading.Lock`)
-- [ ] `mutex-lock <name>` acquires mutex
-- [ ] `mutex-unlock <name>` releases mutex
-- [ ] `sem-create <name> <value>` creates a named semaphore (`threading.Semaphore`)
-- [ ] `sem-wait <name>` decrements semaphore (blocks if zero)
-- [ ] `sem-signal <name>` increments semaphore
+- [x] `mutex-create <name>` creates a named mutex (`threading.Lock`)
+- [x] `mutex-lock <name>` acquires mutex
+- [x] `mutex-unlock <name>` releases mutex
+- [x] `sem-create <name> <value>` creates a named semaphore (`threading.Semaphore`)
+- [x] `sem-wait <name>` decrements semaphore (blocks if zero)
+- [x] `sem-signal <name>` increments semaphore
 
 ### Producer-Consumer
-- [ ] `run-producer-consumer <producers> <consumers> <items> <buffer_size>` runs demo
-- [ ] Semaphores `not_full` and `not_empty` control buffer access
-- [ ] Mutex protects buffer list from concurrent modification
-- [ ] No race conditions or deadlocks occur during execution
-- [ ] Output shows producers/consumers running concurrently
+- [x] `run-producer-consumer <producers> <consumers> <items> <buffer_size>` runs demo
+- [x] Semaphores `not_full` and `not_empty` control buffer access
+- [x] Mutex protects buffer list from concurrent modification
+- [x] No race conditions or deadlocks occur during execution
+- [x] Output shows producers/consumers running concurrently
 
 ### Dining Philosophers
-- [ ] `run-dining-philosophers <num> <eat_time>` runs demo
-- [ ] Each fork represented by a `threading.Lock`
-- [ ] Resource hierarchy rule: always acquire lower-numbered fork first
-- [ ] No deadlock occurs during execution
-- [ ] Output shows philosophers thinking, waiting, and eating
+- [x] `run-dining-philosophers <num> <eat_time>` runs demo
+- [x] Each fork represented by a `threading.Lock`
+- [x] Resource hierarchy rule: always acquire lower-numbered fork first
+- [x] No deadlock occurs during execution
+- [x] Output shows philosophers thinking, waiting, and eating
 
 ### Report
-- [ ] Source code submitted
-- [ ] Screenshots: memory allocation and deallocation
-- [ ] Screenshots: FIFO page replacement in action
-- [ ] Screenshots: LRU page replacement in action
-- [ ] Screenshots: Producer-Consumer synchronization output
-- [ ] Screenshots: Dining Philosophers output
-- [ ] Report section: paging system design and comparison to real OS
-- [ ] Report section: page fault and replacement analysis
-- [ ] Report section: mutex/semaphore usage explained
-- [ ] Report section: synchronization problem solution described
-- [ ] Report section: challenges and improvements discussed
+- [x] Source code submitted
+- [x] Screenshots: memory allocation and deallocation
+- [x] Screenshots: FIFO page replacement in action
+- [x] Screenshots: LRU page replacement in action
+- [x] Screenshots: Producer-Consumer synchronization output
+- [x] Screenshots: Dining Philosophers output
+- [x] Report section: paging system design and comparison to real OS
+- [x] Report section: page fault and replacement analysis
+- [x] Report section: mutex/semaphore usage explained
+- [x] Report section: synchronization problem solution described
+- [x] Report section: challenges and improvements discussed
 
 ---
 

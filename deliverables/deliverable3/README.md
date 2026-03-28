@@ -1,11 +1,11 @@
 # Deliverable 3 — Memory Management and Process Synchronization
 
-## Status: Not Started
+## Status: Complete
 
 ## What to Submit
-- [ ] Source code (`shell/memory_manager.py`, `shell/synchronization.py`)
-- [ ] Report (see `report.md`)
-- [ ] Screenshots (place in `screenshots/` folder)
+- [x] Source code (`shell/memory_manager.py`, `shell/synchronization.py`)
+- [x] Report (see `report.md`)
+- [x] Screenshots (place in `screenshots/` folder)
 
 ## Key Files
 | File | Purpose |
