@@ -56,40 +56,40 @@ Track progress for all four deliverables. Mark items with `[x]` as you complete 
 ## Deliverable 2: Process Scheduling
 
 ### Round-Robin Scheduler
-- [ ] `schedule rr <quantum>` sets up a Round-Robin session with given time quantum
-- [ ] `add-task <name> <burst> <priority>` adds tasks to the queue
-- [ ] `run-scheduler` executes all tasks in Round-Robin order
-- [ ] Tasks are cycled using a deque; incomplete tasks re-queued
-- [ ] `time.sleep()` simulates process execution
-- [ ] Completed tasks removed from queue automatically
-- [ ] Quantum is configurable per session
+- [x] `schedule rr <quantum>` sets up a Round-Robin session with given time quantum
+- [x] `add-task <name> <burst> <priority>` adds tasks to the queue
+- [x] `run-scheduler` executes all tasks in Round-Robin order
+- [x] Tasks are cycled using a deque; incomplete tasks re-queued
+- [x] `time.sleep()` simulates process execution
+- [x] Completed tasks removed from queue automatically
+- [x] Quantum is configurable per session
 
 ### Priority-Based Scheduler
-- [ ] `schedule priority` sets up a Priority-Based session
-- [ ] Tasks stored in a min-heap (`heapq`) ordered by priority
-- [ ] Highest-priority task always selected next
-- [ ] Equal-priority tasks handled FCFS (arrival order tie-break)
-- [ ] Preemption: higher-priority task added mid-run interrupts current task
-- [ ] Preemption implemented via `threading.Event`
+- [x] `schedule priority` sets up a Priority-Based session
+- [x] Tasks stored in a min-heap (`heapq`) ordered by priority
+- [x] Highest-priority task always selected next
+- [x] Equal-priority tasks handled FCFS (arrival order tie-break)
+- [x] Preemption: higher-priority task added mid-run interrupts current task
+- [x] Preemption implemented via `threading.Event`
 
 ### Metrics
-- [ ] Arrival time recorded per task
-- [ ] Start time recorded per task
-- [ ] Finish time recorded per task
-- [ ] Waiting time calculated: `turnaround - burst`
-- [ ] Turnaround time calculated: `finish - arrival`
-- [ ] Response time calculated: `start - arrival`
-- [ ] Metrics table printed after `run-scheduler` completes
+- [x] Arrival time recorded per task
+- [x] Start time recorded per task
+- [x] Finish time recorded per task
+- [x] Waiting time calculated: `turnaround - burst`
+- [x] Turnaround time calculated: `finish - arrival`
+- [x] Response time calculated: `start - arrival`
+- [x] Metrics table printed after `run-scheduler` completes
 
 ### Report
-- [ ] Source code submitted
+- [x] Source code submitted
 - [ ] Screenshots: Round-Robin execution with quantum config and switching
 - [ ] Screenshots: Priority-Based execution showing preemption
 - [ ] Screenshots: metrics table output
-- [ ] Report section: Round-Robin algorithm explained
-- [ ] Report section: Priority-Based algorithm and preemption explained
-- [ ] Report section: performance analysis with metrics
-- [ ] Report section: challenges and improvements discussed
+- [x] Report section: Round-Robin algorithm explained
+- [x] Report section: Priority-Based algorithm and preemption explained
+- [x] Report section: performance analysis with metrics
+- [x] Report section: challenges and improvements discussed
 
 ---
 

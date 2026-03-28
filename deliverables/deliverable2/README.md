@@ -1,10 +1,10 @@
 # Deliverable 2 — Process Scheduling
 
-## Status: Not Started
+## Status: Complete
 
 ## What to Submit
-- [ ] Source code for scheduling algorithms (`shell/scheduler.py`)
-- [ ] Report (see `report.md`)
+- [x] Source code for scheduling algorithms (`shell/scheduler.py`)
+- [x] Report (see `report.md`)
 - [ ] Screenshots (place in `screenshots/` folder)
 
 ## Key Files

@@ -10,6 +10,11 @@ import sys
 from shell.parser import parse
 from shell.builtins import BUILTINS
 import shell.process_manager as process_manager
+import shell.scheduler as scheduler_mod
+from shell.scheduler import (
+    RoundRobinScheduler, PriorityScheduler,
+    set_scheduler, get_scheduler,
+)
 
 # Job-control commands handled by process_manager
 _JOB_CONTROL = {
@@ -17,6 +22,63 @@ _JOB_CONTROL = {
     "fg": process_manager.fg,
     "bg": process_manager.bg,
 }
+
+
+# ---------------------------------------------------------------------------
+# Scheduler command handlers
+# ---------------------------------------------------------------------------
+
+def _cmd_schedule(args: list[str]) -> None:
+    """schedule rr <quantum>  |  schedule priority"""
+    if not args:
+        print("shell: schedule: usage: schedule rr <quantum> | schedule priority")
+        return
+    mode = args[0].lower()
+    if mode == "rr":
+        if len(args) < 2:
+            print("shell: schedule rr: missing quantum argument")
+            return
+        try:
+            quantum = float(args[1])
+        except ValueError:
+            print(f"shell: schedule rr: invalid quantum '{args[1]}'")
+            return
+        set_scheduler(RoundRobinScheduler(quantum))
+        print(f"Round-Robin scheduler ready (quantum={quantum}s). Use 'add-task' then 'run-scheduler'.")
+    elif mode == "priority":
+        set_scheduler(PriorityScheduler())
+        print("Priority scheduler ready. Use 'add-task' then 'run-scheduler'.")
+    else:
+        print(f"shell: schedule: unknown mode '{mode}'. Use 'rr' or 'priority'.")
+
+
+def _cmd_add_task(args: list[str]) -> None:
+    """add-task <name> <burst> <priority>"""
+    if len(args) < 3:
+        print("shell: add-task: usage: add-task <name> <burst> <priority>")
+        return
+    sched = get_scheduler()
+    if sched is None:
+        print("shell: add-task: no active scheduler. Run 'schedule rr <q>' or 'schedule priority' first.")
+        return
+    name = args[0]
+    try:
+        burst = float(args[1])
+        priority = int(args[2])
+    except ValueError:
+        print("shell: add-task: burst must be a number, priority must be an integer")
+        return
+    sched.add_task(name, burst, priority)
+
+
+def _cmd_run_scheduler(args: list[str]) -> None:
+    """run-scheduler"""
+    sched = get_scheduler()
+    if sched is None:
+        print("shell: run-scheduler: no active scheduler.")
+        return
+    sched.run()
+    set_scheduler(None)   # reset after run
 
 
 def repl() -> None:
@@ -56,6 +118,17 @@ def repl() -> None:
 
         cmd = tokens[0]
         args = tokens[1:]
+
+        # Scheduler commands
+        if cmd == "schedule":
+            _cmd_schedule(args)
+            continue
+        if cmd == "add-task":
+            _cmd_add_task(args)
+            continue
+        if cmd == "run-scheduler":
+            _cmd_run_scheduler(args)
+            continue
 
         # Job-control built-ins
         if cmd in _JOB_CONTROL:
